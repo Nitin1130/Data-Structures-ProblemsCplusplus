@@ -2,13 +2,13 @@
 using namespace std;
 
 
-class node
+class Node
 {
     public:
     int data;
-    node *next;
+    Node *next;
 
-    node(int d)
+    Node(int d)
     {
         data=d;
         next=NULL;
@@ -17,9 +17,9 @@ class node
 };
 
 
-void create(node *&head, int x )
+void create(Node *&head, int x )
 {
-    node *n=new node(x);
+    Node *n=new Node(x);
 
     if(head==NULL)
     {
@@ -28,7 +28,7 @@ void create(node *&head, int x )
     }
     else
     {
-        node *temp=head;
+        Node *temp=head;
 
         while(temp->next!=NULL)
         {
@@ -41,10 +41,10 @@ void create(node *&head, int x )
 }
 
 
-node *knode(node *head, int k)
+Node *kNode(Node *head, int k)
 {
-    node *fast=head;
-    node*slow=head;
+    Node *fast=head;
+    Node*slow=head;
 
     int c=1;
 
@@ -54,7 +54,7 @@ node *knode(node *head, int k)
         c++;
     }
 
-node *prev;
+Node *prev;
 
 
     while(fast->next!=NULL)
@@ -76,7 +76,7 @@ return head;
 
 
 
-void print(node *head)
+void print(Node *head)
 {
     while(head!=NULL)
     {
@@ -91,7 +91,7 @@ int main()
 {
 
     int n1;
-    node *head=NULL;
+    Node *head=NULL;
 
     int i,x,k;
 
@@ -107,7 +107,7 @@ int main()
     if(k==0){
         print(head);
     }else{
-    node*final=knode(head,k);
+    Node*final=kNode(head,k);
 
     print(final);
     }

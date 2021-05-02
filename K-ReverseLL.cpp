@@ -1,32 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class node {
+class Node {
     public:
         int data;
-        node *next;
+        Node *next;
 
-        node(int d) {
+        Node(int d) {
             data = d;
             next = NULL;
         }
 };
 
-void appendAtLast(node *&head, int data) {
-    //allocate node
+void appendAtLast(Node *&head, int data) {
+    //allocate Node
     if(head == NULL) {
-        head = new node(data);
+        head = new Node(data);
         return;
     }
-    node *tail = head;
+    Node *tail = head;
     while(tail->next != NULL) {
         tail = tail -> next;
     }
-    tail -> next = new node(data);
+    tail -> next = new Node(data);
     return;
 }
 
-int buildList(node*& head){
+int buildList(Node*& head){
     int n,k;
     cin>>n;
     cin>>k;
@@ -37,18 +37,18 @@ int buildList(node*& head){
     }
     return k;
 }
-void printList(node *node) {
-    while(node != NULL) {
-        cout << node->data << " ";
-        node = node->next;
+void printList(Node *Node) {
+    while(Node != NULL) {
+        cout << Node->data << " ";
+        Node = Node->next;
     }
 }
 
-node* reverse(node *head, int k) {
+Node* reverse(Node *head, int k) {
     int x = k;
-    node *curr = head;
-    node *prev = NULL;
-    node *nex;
+    Node *curr = head;
+    Node *prev = NULL;
+    Node *nex;
     while(curr != NULL && x > 0) {
         //save the next Node
         nex = curr -> next;
@@ -66,7 +66,7 @@ node* reverse(node *head, int k) {
 }
 
 int main() {
-    node* head = NULL;
+    Node* head = NULL;
     int k = buildList(head);
     
     head = reverse(head, k); 

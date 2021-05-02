@@ -1,36 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class node {
+class Node {
     public:
         int data;
-        node *next;
+        Node *next;
 
-        node(int d){
+        Node(int d){
             data = d;
             next = NULL;
         }
 };
 
-void insertAtTail(node* &head, int data) {
+void insertAtTail(Node* &head, int data) {
     if(head == NULL) {
-        head = new node(data);
+        head = new Node(data);
         return;
     }
 
-    node *tail = head;
+    Node *tail = head;
     while(tail-> next != NULL) {
         tail = tail -> next;
 
     }
-    tail -> next = new node(data);
+    tail -> next = new Node(data);
     return;
 }
 
-node* buildList() {
+Node* buildList() {
     int d;
     cin >> d;
-    node*head = NULL;
+    Node*head = NULL;
     while(d != -1) {
         insertAtTail(head, d);
         cin >> d;
@@ -38,9 +38,9 @@ node* buildList() {
     return head;
 }
 
-void printKthNode(node *head, int k ) {
-    node *main_ptr = head;
-    node *ref_ptr = head;
+void printKthNode(Node *head, int k ) {
+    Node *main_ptr = head;
+    Node *ref_ptr = head;
 
     int count = 0;
     if(head != NULL) {
@@ -70,7 +70,7 @@ void printKthNode(node *head, int k ) {
 
 
 int main() {
-    node *head = buildList();
+    Node *head = buildList();
     int k;
     cin >> k;
     printKthNode(head, k);

@@ -1,32 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class node{
+class Node{
     public:
     int data;
-    node *next;
+    Node *next;
 
-    node(int d) {
+    Node(int d) {
         data = d;
         next = NULL;
     }
 };
 
-void appendAtLast(node *&head, int data) {
-    //allocate node
+void appendAtLast(Node *&head, int data) {
+    //allocate Node
     if(head == NULL) {
-        head = new node(data);
+        head = new Node(data);
         return;
     }
-    node *tail = head;
+    Node *tail = head;
     while(tail->next != NULL) {
         tail = tail -> next;
     }
-    tail -> next = new node(data);
+    tail -> next = new Node(data);
     return;
 }
 
-void buildList(node*& head){
+void buildList(Node*& head){
     int n;
     cin>>n;
     while(n--){
@@ -37,12 +37,12 @@ void buildList(node*& head){
     
 }
 
-void segregateEvenOdd(node *&head) {
-    node *evenStart = NULL; //starting node of list having even values
-    node *evenEnd = NULL; //ending node of even values list
-    node *oddStart = NULL; //starting node of odd values
-    node *oddEnd = NULL; //ending node of odd values
-    node *curr = head; //node to traverse the list
+void segregateEvenOdd(Node *&head) {
+    Node *evenStart = NULL; //starting Node of list having even values
+    Node *evenEnd = NULL; //ending Node of even values list
+    Node *oddStart = NULL; //starting Node of odd values
+    Node *oddEnd = NULL; //ending Node of odd values
+    Node *curr = head; //Node to traverse the list
     while(curr != NULL) {
         int val = curr -> data; 
         //if current value is even , add
@@ -89,7 +89,7 @@ void segregateEvenOdd(node *&head) {
 
 }
 
-void printList(node *head) {
+void printList(Node *head) {
     while(head != NULL) {
         cout << head -> data << " ";
         head = head -> next;
@@ -97,7 +97,7 @@ void printList(node *head) {
 }
 
 int main() {
-    node *head = NULL;
+    Node *head = NULL;
     buildList(head);
     segregateEvenOdd(head);
    printList(head);
