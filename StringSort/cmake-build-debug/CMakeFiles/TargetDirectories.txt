@@ -1,0 +1,3 @@
+D:/C++ codes/StringSort/cmake-build-debug/CMakeFiles/StringSort.dir
+D:/C++ codes/StringSort/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/C++ codes/StringSort/cmake-build-debug/CMakeFiles/rebuild_cache.dir

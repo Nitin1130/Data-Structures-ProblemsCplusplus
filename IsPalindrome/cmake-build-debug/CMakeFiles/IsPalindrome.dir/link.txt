@@ -1,0 +1,3 @@
+C:\Users\nitin\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\211.6693.114\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\IsPalindrome.dir/objects.a
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\IsPalindrome.dir/objects.a @CMakeFiles\IsPalindrome.dir\objects1.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\IsPalindrome.dir/objects.a -Wl,--no-whole-archive -o IsPalindrome.exe -Wl,--out-implib,libIsPalindrome.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\IsPalindrome.dir\linklibs.rsp

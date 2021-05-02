@@ -1,0 +1,3 @@
+D:/C++ codes/BInary_Search_in_monotonic_search_spaces/cmake-build-debug/CMakeFiles/BInary_Search_in_monotonic_search_spaces.dir
+D:/C++ codes/BInary_Search_in_monotonic_search_spaces/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/C++ codes/BInary_Search_in_monotonic_search_spaces/cmake-build-debug/CMakeFiles/rebuild_cache.dir

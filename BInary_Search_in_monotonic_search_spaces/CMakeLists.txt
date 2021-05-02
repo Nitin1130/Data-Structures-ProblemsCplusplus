@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.19)
+project(BInary_Search_in_monotonic_search_spaces)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(BInary_Search_in_monotonic_search_spaces main.cpp)
