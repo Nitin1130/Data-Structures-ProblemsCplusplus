@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int32_t main() {
+int_fast32_t main() {
     int n;
     int a[100000];
     int k;
