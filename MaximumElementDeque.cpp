@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-
+#define int long long
 using namespace std;
 
 
-int main() {
+int32_t main() {
     int n;
     int a[100000];
     int k;
@@ -45,4 +45,5 @@ int main() {
         Q.push_back(i);
     }
     cout << a[Q.front()] << endl;
+    return 0;
 }
