@@ -1,100 +1,83 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Node{
-    public:
-    int data;
-    Node *next;
 
-    Node(int d) {
-        data = d;
-        next = NULL;
-    }
+class node {
+    public:
+        int data;
+        node *left;
+        node *right;
+        
+        node(int d) {
+            data = d;
+            left = NULL;
+            right = NULL;
+
+        }
 };
 
-void appendAtLast(Node *&head, int data) {
-    //allocate Node
-    if(head == NULL) {
-        head = new Node(data);
-        return;
+
+node* buildTree(node *root) {
+    int d;
+    cin >> d;
+    root = new node(d);
+    queue<node *> q;
+    q.push(root);
+    while(!q.empty()) {
+        node* temp = q.front();
+        q.pop();
+        cin >> d;
+        if(d != -1) {
+            temp->left = new node(d);
+            q.push(temp->left);
+        }
+        cin >> d;
+        if(d != -1) {
+            temp->right = new node(d);
+            q.push(temp->right);
+        }
     }
-    Node *tail = head;
-    while(tail->next != NULL) {
-        tail = tail -> next;
-    }
-    tail -> next = new Node(data);
-    return;
+    return root;
 }
 
-void buildList(Node*& head){
-    int n;
-    cin>>n;
-    while(n--){
-        int data;
-        cin>>data;
-        appendAtLast(head,data);
-    }
-    
-}
-
-void segregateEvenOdd(Node *&head) {
-    Node *evenStart = NULL; //starting Node of list having even values
-    Node *evenEnd = NULL; //ending Node of even values list
-    Node *oddStart = NULL; //starting Node of odd values
-    Node *oddEnd = NULL; //ending Node of odd values
-    Node *curr = head; //Node to traverse the list
-    while(curr != NULL) {
-        int val = curr -> data; 
-        //if current value is even , add
-        //it to the even value list
-        if(val % 2 == 0) {
-            if(evenStart == NULL) {
-                evenStart = curr;
-                evenEnd = evenStart;
+void correctBST(node * root, node ** first, node ** middle, node ** last, node **prev) {
+    if(root) {
+        //recur for the left subTree
+        correctBST(root->left, first, middle, last, prev);
+        if(*prev && root->data < (*prev)->data) {
+            //if this is first violation
+            if(!*first) {
+                *first = *prev;
+                *middle = root;
             }
             else {
-                evenEnd -> next = curr;
-                evenEnd = evenEnd -> next;
+                *last = root;
             }
         }
-        //if current value is odd, add
-        //it to odd values
-        else {
-            if(oddStart == NULL) {
-                oddStart = curr;
-                oddEnd = oddStart;
-            }
-            else {
-                oddEnd -> next = curr;
-                oddEnd = oddEnd -> next;
-            }
-        }
-        //move head pointer one step in 
-        //forward direction
-        curr = curr -> next;
-    }
-    //if either odd list or even list is empty,
-    //no change is required as all elements
-    //are either even or odd
-    if(oddStart == NULL || evenStart == NULL) {
-        return;
-    }
-    //modify head pointer to 
-    //starting of even list
-    head = evenStart;
-
-}
-
-void printList(Node *head) {
-    while(head != NULL) {
-        cout << head -> data << " ";
-        head = head -> next;
+        // Mark this node as previous
+        *prev = root;
+        //recur for the right Subtree
+        correctBST(root->right, first, middle, last, prev);
     }
 }
+
+void recoverTree(node *root) {
+    node *first, *middle, *last, *prev;
+    first = middle = last = prev = NULL;
+    correctBST(root, &first, &middle, &last, &prev);
+    if(first && last) {
+        swap( &(first->data), &(last->data));
+    }
+    else if(first && middle) {
+        swap( &(first->data), &(middle->data));
+    }
+}
+
+
 
 int main() {
-    Node *head = NULL;
-    buildList(head);
-    segregateEvenOdd(head);
-    printList(head);
+    node *root = buildTree(root);
+    recoverTree(root);
+
+    return 0;
 }

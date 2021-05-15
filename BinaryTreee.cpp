@@ -213,6 +213,30 @@ HBPair isHeightBalanced(node *root) {
     return p;
 }
 
+node *buildTreefromArray(int *a, int s, int e) {
+    if(s > e) {
+        return NULL;
+    }
+    int mid = (s + e) / 2;
+    node *root = new node(a[mid]);
+    root->left = buildTreefromArray(a, s , mid - 1);
+    root->right = buildTreefromArray(a, mid + 1,e);
+    return root;
+}
+
+void printRightView(node *root, int level, int &maxlevel) {
+    if(root == NULL) {
+        return;
+    }
+    if(maxlevel < level) {
+        cout << root->data << " ";
+        maxlevel = level;
+    }
+
+    printRightView(root->right, level + 1, maxlevel);
+    printRightView(root->left, level + 1, maxlevel);
+}
+
 int main() {
 
     node* root = buildTree();
@@ -260,5 +284,11 @@ int main() {
     else {
         cout << "Not Balanced" << endl;
     }
+
+    int a[] = {1,2,3,4,5,6,7};
+    int n = 7;
+    node *rootN = buildTreefromArray(a, 0, n - 1);
+    bfs(rootN);
+
     return 0;
 }
