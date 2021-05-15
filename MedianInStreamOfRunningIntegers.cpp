@@ -11,14 +11,18 @@ int main() {
         cin >> n;
         priority_queue<int> leftHeap;
         priority_queue<int, vector<int>, greater<int>> rightHeap;
-
         int d;
         cin >> d;
-        leftHeap.push(d);
         float med = d;
-        cout << med;
-        cin >> d;
-        while(d!= -1) {
+        cout << med << " ";
+        leftHeap.push(d);
+        n--;
+
+        while(n--) {
+
+            cin >> d; //in one iteration read only one input
+           
+          
             if(leftHeap.size() > rightHeap.size()) {
                 if(d < med) {
                     rightHeap.push(leftHeap.top());
@@ -28,6 +32,7 @@ int main() {
                 else {
                     rightHeap.push(d);
                 }
+                  med = (leftHeap.top() + rightHeap.top()) / 2;//added
             }
             else if(leftHeap.size() == rightHeap.size()) {
                 if(d < med) {
@@ -50,9 +55,10 @@ int main() {
                 }
                 med = (leftHeap.top() + rightHeap.top()) / 2;
             }
-            cout << med << endl;
-            cin >> d;
+            cout << med << " ";
+          //  cin >> d;
         }
+        cout<<"\n";
     }
     return 0;
 }
