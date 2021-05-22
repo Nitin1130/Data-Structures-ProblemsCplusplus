@@ -6,8 +6,7 @@ bool myCompare(int a, int b){
 
 }
 vector<int> HashTrick(vector<int> arr) {
-    4
-1 2 1 3
+  
     vector<int> ans;
     int val = 0;
     for(int i =0 ; i < arr.size(); i++) {
