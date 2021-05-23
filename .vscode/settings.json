@@ -8,6 +8,7 @@
         "vector": "cpp",
         "xiosbase": "cpp",
         "map": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "utility": "cpp"
     }
 }
